@@ -1,0 +1,28 @@
+@mixin btn($background-color, $color, $boid) {
+  background-color: $background-color;
+  color: $color;
+  border-radius: 50px;
+  padding: 20px 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @if ($boid == "true") {
+    font-weight: bolder;
+  } //condicional para texto en negrita
+}
+
+.btn {
+  &.btn-cta {
+    @include btn($color-primary, black, "true");
+    &:hover {
+      @include btn($color-secondaty, $terciary-color, "true");
+      box-shadow: $box-shadow;
+    }
+  }
+  &:hover {
+    @include btn($terciary-color, $color-terciary, "false");
+    box-shadow: $box-shadow;
+  }
+}
